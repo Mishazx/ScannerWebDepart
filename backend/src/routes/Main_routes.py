@@ -1,5 +1,7 @@
 import time
 import os
+from src.models.Role import Role
+from src.models.User import User
 
 from flask import request, jsonify, session
 from werkzeug.utils import secure_filename

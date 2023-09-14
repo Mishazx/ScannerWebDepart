@@ -1,5 +1,5 @@
 from src import db
-from Main import file_role_table
+from src.models.Main import file_role_table
 
 class Role(db.Model):
     __tablename__ = 'roles'
