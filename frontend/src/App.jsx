@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Window, { showConfirmationWindow } from './Window';
 
 function App() {  
   const [isDragging, setIsDragging] = useState(false);
@@ -37,14 +38,14 @@ function App() {
       if (uploadResponse.ok) {
         const uploadedData = await uploadResponse.json();
         console.log('Uploaded files:', uploadedData.uploaded_files);
-        const shouldProcess = window.confirm("Вы уверены, что хотите обработать файл?");
-  
+        //const shouldProcess = window.confirm("Вы уверены, что хотите обработать файл?");
+        const shouldProcess = await showConfirmationWindow("Подтверждение об отправке", "Вы уверены, что хотите обработать файл?")
         if (shouldProcess) {
           setIsProcessing(true);
           const data = await handleProcessing(uploadedData.uploaded_files);
           setIsProcessing(false);
 
-          handleSendConfirmation(data);
+          await handleSendConfirmation(data);
 
         } else {
           // Smoke.alert ("Супер всплывайка <br>с <b>html</b> тегами");
@@ -102,10 +103,12 @@ function App() {
   };
     
 
-  const handleSendConfirmation = (processResult) => {
+  const handleSendConfirmation = async (processResult) => {
     setIsProcessing(false);
     window.title = "Подтверждение";
-    const shouldSend = window.confirm(`Вы уверены, что хотите отправить файл в отдел ${processResult} ?`);
+    // const shouldSend = window.confirm(`Вы уверены, что хотите отправить файл в отдел ${processResult} ?`);
+    const shouldSend = await showConfirmationWindow('Подтверждение об отправке в отдел',`Вы уверены, что хотите отправить файл в отдел ${processResult} ?`);
+
     if (shouldSend) {
       window.alert(`Отправлено в отдел ${processResult} `)
       // console.log('Send to', processResult);
@@ -117,6 +120,7 @@ function App() {
 
   return (
     <div className='body'>
+      {/* <Window title='asd' text='123123'/> */}
       <div className={`container ${isDragging ? 'dragging' : ''}`}//'container'
         onDragEnter={handleDragEnter}
         onDragLeave={handleDragLeave}
