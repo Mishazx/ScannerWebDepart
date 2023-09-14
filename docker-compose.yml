@@ -1,0 +1,52 @@
+version: "3"
+services:
+  frontend:
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    container_name: frontend_app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+    environment:
+      - BACKEND_URL=http://backend:4000
+
+  backend:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    container_name: backend_app
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend:/app
+
+  database:
+    image: mysql
+    container_name: database_app
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DBNAME}
+      MYSQL_USER: user
+      MYSQL_PASSWORD: ${DB_USER}
+    ports:
+      - "4001:3306"
+
+  phpmyadmin:
+    image: arm64v8/phpmyadmin
+    container_name: phpmyadmin_app
+    links:
+      - database
+    environment:
+      PMA_HOST: database
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 4002:80
+    
+networks:
+  my_network:

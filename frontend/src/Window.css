@@ -1,0 +1,137 @@
+.cnt{
+  position:absolute;
+  background: linear-gradient(50deg, rgba(60,60,60,1) 0%, rgba(50,50,50,1) 18%, rgba(45,45,45,1) 42%, rgba(50,50,50,1) 50%, rgba(65,65,65,1) 65%, rgba(75,75,75,1) 75%, rgba(80,80,80,1) 85%, rgba(90,90,90,1) 100%);
+
+  border-radius: 3rem;
+  box-shadow: -1px 2px 10px 3px black;
+
+  min-height: 1px;
+  left: 20%;
+  right: 20%;
+  bottom: 75%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  opacity: 100%;
+  height: auto;
+  overflow: hidden;
+
+} 
+
+.msg-header
+{
+  color: #FFFFFF;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.msg-txt{
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 'bold';
+  background-color: 'transparent';
+  
+  margin: 2%;
+  /* padding-left: 5%; */
+  /* padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  padding-right: 5%; */
+  /* margin-bottom: 1.5rem */
+}
+
+.msg-ctrl {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+
+.msg-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid white;
+  border-radius: 1.5rem;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  
+  padding-left: 5%; 
+  margin: 3%;
+
+}
+
+.msg-btn:hover {
+  background-color: white;
+  color: #333333;
+} 
+
+
+/* LoginPage.module.css
+.container {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #283c86, #45a247);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  border-radius: 3rem;
+  box-shadow: 0px 5px 20px 10px black;
+}
+
+.card-body {
+  padding: 2.5rem;
+}
+
+.form-outline {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-weight: bold;
+  color: white;
+}
+
+.form-control {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* .btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid white;
+  border-radius: 1.5rem;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+} */
+
+/* .btn:hover {
+  background-color: white;
+  color: #333;
+} */ 

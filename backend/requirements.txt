@@ -1,0 +1,12 @@
+flask
+flask-cors
+flask-session
+flask-sqlalchemy
+flask-migrate
+werkzeug
+PyPDF2
+g4f
+httpx
+gunicorn
+python-dotenv
+mysqlclient
